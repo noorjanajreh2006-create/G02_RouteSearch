@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Search Web App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Route Search AI</h2>
+            <p class="subtitle">Fundamentals of AI - Assignment 1</p>
+            <hr>
+
+            <div class="control-group">
+                <label for="map-upload">Upload Map (JSON):</label>
+                <input type="file" id="map-upload" accept=".json">
+            </div>
+
+            <hr>
+
+            <div class="control-group">
+                <label for="start-city">Start City:</label>
+                <select id="start-city">
+                    <option value="">-- Select Start --</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="goal-city">Goal City:</label>
+                <select id="goal-city">
+                    <option value="">-- Select Goal --</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="algorithm">Search Algorithm:</label>
+                <select id="algorithm">
+                    <option value="BFS">Breadth-First Search (BFS)</option>
+                    <option value="DFS">Depth-First Search (DFS)</option>
+                    <option value="UCS">Uniform-Cost Search (UCS)</option>
+                    <option value="Greedy">Greedy Best-First Search</option>
+                    <option value="A*">A* Search</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button id="btn-search" class="btn primary">Find Route</button>
+                <button id="btn-compare" class="btn secondary">Compare All</button>
+            </div>
+
+            <div id="single-result" class="result-card hidden">
+                <h3>Search Result</h3>
+                <p><strong>Path:</strong> <span id="res-path">-</span></p>
+                <p><strong>Total Cost:</strong> <span id="res-cost">-</span> km</p>
+                <p><strong>Steps Expanded:</strong> <span id="res-steps">-</span></p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header-bar">
+                <h1 id="map-title">Map Visualization</h1>
+            </header>
+
+            <div class="map-wrapper" id="map-container">
+                <canvas id="map-canvas"></canvas>
+            </div>
+
+            <section id="compare-section" class="compare-container hidden">
+                <h2>Algorithm Comparison</h2>
+                <table id="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Path</th>
+                            <th>Cost (km)</th>
+                            <th>Steps</th>
+                            <th>Optimal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>
